@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# test
 # Create symlinks from network volume
 VOLUME_PATH="/runpod-volume/runpod-slim/ComfyUI"
 
