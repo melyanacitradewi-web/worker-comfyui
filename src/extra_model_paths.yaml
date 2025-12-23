@@ -1,0 +1,19 @@
+# Default paths - works with or without network volume
+# The start.sh script handles symlinking when volume is attached
+comfyui:
+    base_path: /comfyui/
+    checkpoints: models/checkpoints/
+    clip: models/clip/
+    clip_vision: models/clip_vision/
+    configs: models/configs/
+    controlnet: models/controlnet/
+    diffusion_models: models/diffusion_models/
+    embeddings: models/embeddings/
+    gligen: models/gligen/
+    hypernetworks: models/hypernetworks/
+    loras: models/loras/
+    style_models: models/style_models/
+    unet: models/unet/
+    upscale_models: models/upscale_models/
+    vae: models/vae/
+    vae_approx: models/vae_approx/
