@@ -1,5 +1,38 @@
 #!/usr/bin/env bash
 
+# Create symlinks from network volume (runpod-slim)
+VOLUME_PATH="/runpod-volume/runpod-slim"
+
+# Link custom nodes
+if [ -d "$VOLUME_PATH/custom_nodes" ]; then
+    echo "Linking custom nodes from network volume..."
+    rm -rf /comfyui/custom_nodes
+    ln -s $VOLUME_PATH/custom_nodes /comfyui/custom_nodes
+fi
+
+# Link models folder entirely (alternative to extra_model_paths.yaml)
+if [ -d "$VOLUME_PATH/models" ]; then
+    echo "Linking models from network volume..."
+    rm -rf /comfyui/models
+    ln -s $VOLUME_PATH/models /comfyui/models
+fi
+
+# Link input folder
+if [ -d "$VOLUME_PATH/input" ]; then
+    echo "Linking input folder from network volume..."
+    rm -rf /comfyui/input
+    ln -s $VOLUME_PATH/input /comfyui/input
+fi
+
+# Link output folder
+if [ -d "$VOLUME_PATH/output" ]; then
+    echo "Linking output folder from network volume..."
+    rm -rf /comfyui/output
+    ln -s $VOLUME_PATH/output /comfyui/output
+fi
+
+echo "Network volume setup complete!"
+
 # Use libtcmalloc for better memory management
 TCMALLOC="$(ldconfig -p | grep -Po "libtcmalloc.so.\d" | head -n 1)"
 export LD_PRELOAD="${TCMALLOC}"
