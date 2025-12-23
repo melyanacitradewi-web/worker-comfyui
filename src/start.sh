@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Create symlinks from network volume (runpod-slim)
-VOLUME_PATH="/runpod-volume/runpod-slim"
+# Create symlinks from network volume
+VOLUME_PATH="/runpod-volume/runpod-slim/ComfyUI"
 
 # Link custom nodes
 if [ -d "$VOLUME_PATH/custom_nodes" ]; then
@@ -10,7 +10,7 @@ if [ -d "$VOLUME_PATH/custom_nodes" ]; then
     ln -s $VOLUME_PATH/custom_nodes /comfyui/custom_nodes
 fi
 
-# Link models folder entirely (alternative to extra_model_paths.yaml)
+# Link models folder
 if [ -d "$VOLUME_PATH/models" ]; then
     echo "Linking models from network volume..."
     rm -rf /comfyui/models
